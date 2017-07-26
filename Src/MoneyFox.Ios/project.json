@@ -17,7 +17,8 @@
     "MvvmCross.Plugin.Visibility": "5.1.0",
     "MvvmCross.Plugin.WebBrowser": "5.1.0",
     "NETStandard.Library": "1.6.1",
-    "Xamarin.Auth": "1.5.0.3"
+    "Xamarin.Auth": "1.5.0.3",
+    "Xamarin.Forms": "3.0.0.100-embeddingpreview"
   },
   "frameworks": {
     "Xamarin.iOS,Version=v1.0": {

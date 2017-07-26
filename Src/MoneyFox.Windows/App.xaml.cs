@@ -83,6 +83,8 @@ namespace MoneyFox.Windows
                 Window.Current.Content = extendedSplash;
             }
 
+            Xamarin.Forms.Forms.Init(e);
+
             OverrideTitleBarColor();
             
             // Ensure the current window is active

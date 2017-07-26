@@ -18,7 +18,9 @@ namespace MoneyFox.Ios
 
 			var presenter = new MvxIosViewPresenter(this, Window);
 
-			var setup = new Setup(this, presenter);
+            Xamarin.Forms.Forms.Init();
+
+            var setup = new Setup(this, presenter);
 			setup.Initialize();
 
 			var startup = Mvx.Resolve<IMvxAppStart>();

@@ -182,6 +182,10 @@
       <Project>{3040FFCD-98E4-4C02-867C-725C93AD38E8}</Project>
       <Name>MoneyFox.Foundation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MoneyFox.View\MoneyFox.View.csproj">
+      <Project>{ead3d470-e682-4fa0-94a2-3a11109645fe}</Project>
+      <Name>MoneyFox.View</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

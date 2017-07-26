@@ -21,6 +21,8 @@ namespace MoneyFox.Droid.Activities
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), DatabaseConstants.DB_NAME);
             DataAccess.ApplicationContextOld.DbPath =
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), DatabaseConstants.DB_NAME_OLD);
+
+            Xamarin.Forms.Forms.Init(this, null);
         }
     }
 }
