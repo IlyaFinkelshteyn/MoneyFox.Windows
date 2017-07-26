@@ -3,8 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyFox.Business.Views.AboutPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Image Source="../Images/ApplyLogo.png" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"
+                  HeightRequest="47"
+                  WidthRequest="160"
+                  Padding="7"
+                  HorizontalOptions="CenterAndExpand">
+                <Grid.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color"
+                            Android="#EFF2F5"
+                            WinPhone="White"
+                            iOS="White">
+                    </OnPlatform>
+                </Grid.BackgroundColor>
+
+                <Image x:Name="HeaderImage"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" />
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
