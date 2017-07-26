@@ -18,6 +18,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Images\ApplyLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.1" />
     <PackageReference Include="Cheesebaron.MvxPlugins.Connectivity" Version="3.1.0" />
     <PackageReference Include="Cheesebaron.MvxPlugins.Settings" Version="3.1.0" />
@@ -28,11 +40,19 @@
     <PackageReference Include="MvvmCross.Plugin.Visibility" Version="5.1.0" />
     <PackageReference Include="MvvmCross.Plugin.WebBrowser" Version="5.1.0" />
     <PackageReference Include="Xamarin.Auth" Version="1.5.0.3" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.100-embeddingpreview" />
+
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MoneyFox.Foundation\MoneyFox.Foundation.csproj" />
     <ProjectReference Include="..\MoneyFox.Service\MoneyFox.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AboutPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

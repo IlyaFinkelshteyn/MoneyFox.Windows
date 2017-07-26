@@ -1,5 +1,5 @@
 ﻿using MoneyFox.Business.ViewModels;
-using MoneyFox.View;
+using MoneyFox.Business.Views;
 using MvvmCross.Platform;
 using Xamarin.Forms;
 
