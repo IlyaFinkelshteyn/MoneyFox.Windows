@@ -3,14 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyFox.Business.Views.AboutPage">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0"
-                  HeightRequest="47"
+        <StackPanel>
+            <Grid HeightRequest="47"
                   WidthRequest="160"
                   Padding="7"
                   HorizontalOptions="CenterAndExpand">
@@ -26,6 +20,9 @@
                        Aspect="AspectFit"
                        HorizontalOptions="Center" />
             </Grid>
-        </Grid>
+
+            <Button Text="Click Me!"
+                    HorizontalOptions="CenterAndExpand"/>
+        </StackPanel>
     </ContentPage.Content>
 </ContentPage>
