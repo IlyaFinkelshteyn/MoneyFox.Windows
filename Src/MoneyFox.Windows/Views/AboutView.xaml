@@ -3,7 +3,6 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:userControls="using:MoneyFox.Windows.Views.UserControls"
                       xmlns:views="using:MvvmCross.Uwp.Views"
                       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                       mc:Ignorable="d">
@@ -14,13 +13,10 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <userControls:PageHeader>
-            <userControls:PageHeader.HeaderContent>
-                <TextBlock x:Uid="AboutTitle"
-                           Style="{ThemeResource PageTitleTextBlockStyle}"
-                           Text="About" />
-            </userControls:PageHeader.HeaderContent>
-        </userControls:PageHeader>
+        <TextBlock x:Name="TitlePage"
+                   x:Uid="BackupTitle"
+                   Text="Backup"
+                   Style="{StaticResource PageTitleStyle}" />
 
         <Grid Grid.Row="1" x:Name="ContentGrid" />
     </Grid>
