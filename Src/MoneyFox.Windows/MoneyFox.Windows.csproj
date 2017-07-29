@@ -109,7 +109,6 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="MoneyFox.Windows_StoreKey.pfx" />
     <None Include="MoneyFox.Windows_TemporaryKey.pfx" />
-    <None Include="project.json" />
     <PRIResource Include="Strings\bg\Resources.resw" />
     <PRIResource Include="Strings\fr\Resources.resw" />
     <PRIResource Include="Strings\it\Resources.resw" />
@@ -125,6 +124,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Src\BackgroundTaskManager.cs" />
     <Compile Include="Controls\WarningListView.cs" />
     <Compile Include="Converter\NativeRecurrenceTypeConverter.cs" />
     <Compile Include="Converter\NativeBackupDateVisibilityConverter.cs" />
@@ -138,27 +138,29 @@
     <Compile Include="Converter\SelectedConverter.cs" />
     <Compile Include="Controls\NavMenuListView.cs" />
     <Compile Include="Converter\ThemedImageConverter.cs" />
+    <Compile Include="Src\OneDriveAuthenticator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\MicrosoftPassportHelper.cs" />
     <Compile Include="Services\ModifyDialogService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="ShellNavigationItem.cs" />
+    <Compile Include="ShellViewModel.cs" />
     <Compile Include="Src\MarketplaceOperations.cs" />
     <Compile Include="Src\ProtectedData.cs" />
+    <Compile Include="Src\SyncBackupTask.cs" />
     <Compile Include="Src\ThemedImageConverterLogic.cs" />
     <Compile Include="Src\Tile.cs" />
     <Compile Include="Src\TileHelper.cs" />
     <Compile Include="Src\TileManager.cs" />
     <Compile Include="Src\WindowsAppInformation.cs" />
+    <Compile Include="Src\TileUpdateService.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AccountListView.xaml.cs">
       <DependentUpon>AccountListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AppShell.xaml.cs">
-      <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BackupView.xaml.cs">
       <DependentUpon>BackupView.xaml</DependentUpon>
@@ -196,6 +198,9 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StatisticCashFlowView.xaml.cs">
       <DependentUpon>StatisticCashFlowView.xaml</DependentUpon>
     </Compile>
@@ -213,9 +218,6 @@
     </Compile>
     <Compile Include="Views\UserControls\CategoryListUserControl.xaml.cs">
       <DependentUpon>CategoryListUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\PageHeader.xaml.cs">
-      <DependentUpon>PageHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\PaymentListUserControl.xaml.cs">
       <DependentUpon>PaymentListUserControl.xaml</DependentUpon>
@@ -244,35 +246,19 @@
     <Content Include="Assets\Close.png" />
     <Content Include="Assets\dark\done.png" />
     <Content Include="Assets\dark\filter.png" />
-    <Content Include="Assets\dark\internet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\dark\mail.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\dark\repeat.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\dark\internet.png" />
+    <Content Include="Assets\dark\mail.png" />
+    <Content Include="Assets\dark\repeat.png" />
     <Content Include="Assets\dark\statistic.png" />
-    <Content Include="Assets\dark\twitter.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\dark\twitter.png" />
     <Content Include="Assets\IncomeTileIcon.png" />
     <Content Include="Assets\light\done.png" />
     <Content Include="Assets\light\filter.png" />
-    <Content Include="Assets\light\internet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\light\mail.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\light\repeat.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\light\internet.png" />
+    <Content Include="Assets\light\mail.png" />
+    <Content Include="Assets\light\repeat.png" />
     <Content Include="Assets\light\statistic.png" />
-    <Content Include="Assets\light\twitter.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\light\twitter.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SpendingTileIcon.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
@@ -320,7 +306,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
-    <None Include="FodyWeavers.xml" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -354,15 +339,19 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="Style\_FontSizes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\_Thickness.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\AboutView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AccountListView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\AppShell.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -414,6 +403,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\ShellPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\StatisticCashFlowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -435,10 +428,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserControls\CategoryListUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\PageHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -469,6 +458,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
+      <Name>Microsoft Engagement Framework</Name>
+    </SDKReference>
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
@@ -495,10 +487,6 @@
     <ProjectReference Include="..\MoneyFox.Service\MoneyFox.Service.csproj">
       <Project>{41637575-DF70-48B4-A99C-46299A7D2E8F}</Project>
       <Name>MoneyFox.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MoneyFox.Windows.Business\MoneyFox.Windows.Business.csproj">
-      <Project>{10036117-BB05-427C-BDC2-F2CEB1E974B1}</Project>
-      <Name>MoneyFox.Windows.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\MoneyFox.Windows.Tasks\MoneyFox.Windows.Tasks.csproj">
       <Project>{2b1c7af2-7208-4d84-9bd8-93c13fe373da}</Project>
@@ -539,7 +527,16 @@
     <PackageReference Include="Microsoft.OneDriveSDK">
       <Version>2.0.7</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.OneDriveSDK.Authentication">
+      <Version>1.0.10</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Services.Store.SDK">
+      <Version>10.1705.16001</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>1.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>1.5.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">

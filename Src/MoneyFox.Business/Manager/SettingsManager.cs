@@ -1,6 +1,7 @@
 ﻿﻿using System;
 using Cheesebaron.MvxPlugins.Settings.Interfaces;
-using MoneyFox.Foundation.Interfaces;
+ using MoneyFox.Foundation;
+ using MoneyFox.Foundation.Interfaces;
 
 namespace MoneyFox.Business.Manager
 {
@@ -28,6 +29,9 @@ namespace MoneyFox.Business.Manager
         private const string BACKUP_SYNC_RECURRENCE_KEYNAME = "BackupSyncRecurrence";
         private const int BACKUP_SYNC_RECURRENCE_KEYDEFAULT = 3;
 
+        public const string THEME_KEYNAME = "Theme";
+        private const AppTheme THEME_KEYDEFAULT = AppTheme.System;
+
         private const string DATABASE_LAST_UPDATE_KEYNAME = "DatabaseLastUpdate";
 
         /// <summary>
@@ -52,78 +56,78 @@ namespace MoneyFox.Business.Manager
         /// <inheritdoc />
         public bool ShowCashFlowOnMainTile
         {
-            get
-            {
-                return settings.GetValue(SHOW_CASH_FLOW_ON_MAIN_TILE_KEYNAME,
-                    SHOW_CASH_FLOW_ON_MAIN_TILE_KEYDEFAULT);
-            }
-            set { settings.AddOrUpdateValue(SHOW_CASH_FLOW_ON_MAIN_TILE_KEYNAME, value); }
+            get => settings.GetValue(SHOW_CASH_FLOW_ON_MAIN_TILE_KEYNAME,
+                                     SHOW_CASH_FLOW_ON_MAIN_TILE_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(SHOW_CASH_FLOW_ON_MAIN_TILE_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public bool IsBackupAutouploadEnabled
         {
-            get
-            {
-                return settings.GetValue(AUTOUPLOAD_BACKUP_KEYNAME,
-                    AUTOUPLOAD_BACKUP_KEYDEFAULT);
-            }
-            set { settings.AddOrUpdateValue(AUTOUPLOAD_BACKUP_KEYNAME, value); }
+            get => settings.GetValue(AUTOUPLOAD_BACKUP_KEYNAME,
+                                     AUTOUPLOAD_BACKUP_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(AUTOUPLOAD_BACKUP_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public string SessionTimestamp
         {
-            get { return settings.GetValue(SESSION_TIMESTAMP_KEY, SESSION_TIMESTAMP_DEFAULT); }
-            set { settings.AddOrUpdateValue(SESSION_TIMESTAMP_KEY, value); }
+            get => settings.GetValue(SESSION_TIMESTAMP_KEY, SESSION_TIMESTAMP_DEFAULT);
+            set => settings.AddOrUpdateValue(SESSION_TIMESTAMP_KEY, value);
         }
 
         /// <inheritdoc />
         public bool PasswordRequired
         {
-            get { return settings.GetValue(PASSWORD_REQUIRED_KEYNAME, PASSWORD_REQUIRED_KEYDEFAULT); }
-            set { settings.AddOrUpdateValue(PASSWORD_REQUIRED_KEYNAME, value); }
+            get => settings.GetValue(PASSWORD_REQUIRED_KEYNAME, PASSWORD_REQUIRED_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(PASSWORD_REQUIRED_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public bool PassportEnabled {
-            get { return settings.GetValue(PASSPORT_REQUIRED_KEYNAME, PASSPORT_REQUIRED_KEYDEFAULT); }
-            set { settings.AddOrUpdateValue(PASSPORT_REQUIRED_KEYNAME, value); }
+            get => settings.GetValue(PASSPORT_REQUIRED_KEYNAME, PASSPORT_REQUIRED_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(PASSPORT_REQUIRED_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public DateTime LastDatabaseUpdate
         {
-            get { return settings.GetValue(DATABASE_LAST_UPDATE_KEYNAME, DateTime.MinValue); }
-            set { settings.AddOrUpdateValue(DATABASE_LAST_UPDATE_KEYNAME, value); }
+            get => settings.GetValue(DATABASE_LAST_UPDATE_KEYNAME, DateTime.MinValue);
+            set => settings.AddOrUpdateValue(DATABASE_LAST_UPDATE_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public bool IsDarkThemeSelected
         {
-            get { return settings.GetValue(DARK_THEME_SELECTED_KEYNAME, DARK_THEME_SELECTED_KEYDEFAULT); }
-            set { settings.AddOrUpdateValue(DARK_THEME_SELECTED_KEYNAME, value); }
+            get => settings.GetValue(DARK_THEME_SELECTED_KEYNAME, DARK_THEME_SELECTED_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(DARK_THEME_SELECTED_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public bool UseSystemTheme
         {
-            get { return settings.GetValue(USE_SYSTEM_THEME_KEYNAME, USE_SYSTEM_THEME_KEYDEFAULT); }
-            set { settings.AddOrUpdateValue(USE_SYSTEM_THEME_KEYNAME, value); }
+            get => settings.GetValue(USE_SYSTEM_THEME_KEYNAME, USE_SYSTEM_THEME_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(USE_SYSTEM_THEME_KEYNAME, value);
+        }
+
+        public AppTheme Theme
+        {
+            get { return settings.GetValue(THEME_KEYNAME, THEME_KEYDEFAULT); }
+            set { settings.AddOrUpdateValue(THEME_KEYNAME, value); }
         }
 
         /// <inheritdoc />
         public bool IsLoggedInToBackupService
         {
-            get { return settings.GetValue(BACKUP_LOGGEDIN_KEYNAME, BACKUP_LOGGEDIN_KEYDEFAULT); }
-            set { settings.AddOrUpdateValue(BACKUP_LOGGEDIN_KEYNAME, value); }
+            get => settings.GetValue(BACKUP_LOGGEDIN_KEYNAME, BACKUP_LOGGEDIN_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(BACKUP_LOGGEDIN_KEYNAME, value);
         }
 
         /// <inheritdoc />
         public int BackupSyncRecurrence
         {
-            get { return settings.GetValue(BACKUP_SYNC_RECURRENCE_KEYNAME, BACKUP_SYNC_RECURRENCE_KEYDEFAULT); }
-            set { settings.AddOrUpdateValue(BACKUP_SYNC_RECURRENCE_KEYNAME, value); }
+            get => settings.GetValue(BACKUP_SYNC_RECURRENCE_KEYNAME, BACKUP_SYNC_RECURRENCE_KEYDEFAULT);
+            set => settings.AddOrUpdateValue(BACKUP_SYNC_RECURRENCE_KEYNAME, value);
         }
 
         #endregion Properties
