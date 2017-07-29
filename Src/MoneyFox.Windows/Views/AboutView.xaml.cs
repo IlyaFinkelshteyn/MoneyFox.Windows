@@ -1,6 +1,5 @@
-﻿using MoneyFox.Business.ViewModels;
+﻿using Windows.UI.Xaml;
 using MoneyFox.Business.Views;
-using MvvmCross.Platform;
 using Xamarin.Forms;
 
 namespace MoneyFox.Windows.Views
@@ -10,16 +9,23 @@ namespace MoneyFox.Windows.Views
     /// </summary>
     public sealed partial class AboutView
     {
+        private readonly AboutPage aboutPage; 
+
         /// <summary>
         ///     Constructor
         /// </summary>
         public AboutView()
         {
             InitializeComponent();
-            DataContext = Mvx.Resolve<AboutViewModel>();
-
-            var aboutPage = new AboutPage();
+            
+            aboutPage = new AboutPage();
             ContentGrid.Children.Add(aboutPage.CreateFrameworkElement());
+        }
+
+        private void AboutView_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ContentGrid.Children.Clear();
+            ContentGrid.Children.Add(new AboutPage().CreateFrameworkElement());
         }
     }
 }

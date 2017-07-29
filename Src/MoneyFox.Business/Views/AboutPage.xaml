@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyFox.Business.Views.AboutPage">
     <ContentPage.Content>
-        <StackPanel>
+        <StackLayout>
             <Grid HeightRequest="47"
                   WidthRequest="160"
                   Padding="7"
@@ -23,6 +23,6 @@
 
             <Button Text="Click Me!"
                     HorizontalOptions="CenterAndExpand"/>
-        </StackPanel>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

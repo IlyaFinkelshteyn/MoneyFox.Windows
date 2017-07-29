@@ -13,8 +13,11 @@ namespace MoneyFox.Business.Views
 			InitializeComponent ();
 		    SetheaderImage();
 
-            BindingContext = Mvx.Resolve<AboutViewModel>();
-        }
+		    if (Application.Current != null)
+		    {
+		        BindingContext = Mvx.Resolve<AboutViewModel>();
+		    }
+		}
 
 	    private void SetheaderImage()
 	    {

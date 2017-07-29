@@ -1,4 +1,6 @@
-﻿namespace MoneyFox.Windows.Views
+﻿using Windows.UI.Xaml;
+
+namespace MoneyFox.Windows.Views
 {
     public sealed partial class BackupView
     {
