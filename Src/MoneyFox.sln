@@ -30,11 +30,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyFox.Windows.Business",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyFox.Droid", "MoneyFox.Droid\MoneyFox.Droid.csproj", "{19DC0BB0-19F4-4E2D-80B7-FAE77A7C9B36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyFox.Business.Tests", "MoneyFox.Business.Tests\MoneyFox.Business.Tests.csproj", "{58755E30-442D-4974-A937-1D2EF794A607}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyFox.Business.Tests", "MoneyFox.Business.Tests\MoneyFox.Business.Tests.csproj", "{58755E30-442D-4974-A937-1D2EF794A607}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyFox.Foundation.Tests", "MoneyFox.Foundation.Tests\MoneyFox.Foundation.Tests.csproj", "{6FCACF5A-9621-4446-AE71-E5E19B68AA01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyFox.Foundation.Tests", "MoneyFox.Foundation.Tests\MoneyFox.Foundation.Tests.csproj", "{6FCACF5A-9621-4446-AE71-E5E19B68AA01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyFox.Service.Tests", "MoneyFox.Service.Tests\MoneyFox.Service.Tests.csproj", "{65BC6C81-77E5-4D48-AE2F-06E5067F9ADB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyFox.Service.Tests", "MoneyFox.Service.Tests\MoneyFox.Service.Tests.csproj", "{65BC6C81-77E5-4D48-AE2F-06E5067F9ADB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
