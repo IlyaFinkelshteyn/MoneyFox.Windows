@@ -32,10 +32,6 @@ namespace MoneyFox.DataAccess.Infrastructure
     {
         private ApplicationContext dbContext;
 
-        [DllImport("sqlite3", CallingConvention = CallingConvention.Cdecl)]
-        static extern int sqlite3_extended_result_codes(IntPtr db, int onoff);
-
-
         /// <inheritdoc />
         public async Task<ApplicationContext> Init()
         {
@@ -44,21 +40,7 @@ namespace MoneyFox.DataAccess.Infrastructure
                 dbContext = new ApplicationContext(new DbContextOptions<ApplicationContext>());
             }
 
-            StateChangeEventHandler handler =
-                (sender, e) =>
-                {
-                    if (e.CurrentState != ConnectionState.Open)
-                        return;
-
-                    var connection = (SqliteConnection)sender;
-
-                    sqlite3_extended_result_codes(connection.Handle, 0);
-                };
-
-            dbContext.Database.GetDbConnection().StateChange += handler;
-            dbContext.Database.OpenConnection();
             await dbContext.Database.MigrateAsync();
-            dbContext.Database.GetDbConnection().StateChange -= handler;
             return dbContext;
         }
 

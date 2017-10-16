@@ -4,7 +4,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>MoneyFox.Foundation</AssemblyName>
     <PackageId>MoneyFox.Foundation</PackageId>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wpa81</PackageTargetFallback>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
