@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MoneyFox.DataAccess.DataServices;
+using MoneyFox.Service.DataServices;
 
 namespace MoneyFox.Business.Manager
 {

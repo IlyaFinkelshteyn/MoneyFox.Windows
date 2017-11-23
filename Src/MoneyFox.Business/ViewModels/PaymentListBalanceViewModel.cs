@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using MoneyFox.Business.Manager;
-using MoneyFox.DataAccess.DataServices;
+using MoneyFox.Service.DataServices;
 
 namespace MoneyFox.Business.ViewModels
 {

@@ -9,6 +9,7 @@ using MoneyFox.Foundation.Interfaces;
 using MoneyFox.Foundation.Resources;
 using MvvmCross.Core.ViewModels;
 using MoneyFox.Foundation;
+using MoneyFox.Service.DataServices;
 using MvvmCross.Core.Navigation;
 
 namespace MoneyFox.Business.ViewModels
