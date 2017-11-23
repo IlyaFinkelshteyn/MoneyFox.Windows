@@ -1,0 +1,1 @@
+D:\Documents\Git\MoneyFox.Windows\Src\MoneyFox.UWP\bin\ARM\Release\Upload\MoneyFox.UWP_3.3.6.0\MoneyFox.UWP_3.3.6.0_x86_x64_arm.appxbundle
