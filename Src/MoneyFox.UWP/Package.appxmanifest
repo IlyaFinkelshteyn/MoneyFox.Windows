@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
   <Identity Name="57598ApplySolutionsSoftwa.MoneyFoxBeta" Publisher="CN=071307B1-B0E3-434A-AD0E-FFF714A7245C" Version="1.1.0.0" />
-  <mp:PhoneIdentity PhoneProductId="f4db6ee0-a7f0-42b5-9592-ab2ab9a93251" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="c1ab358c-46c1-401c-adc3-c3e46b0bfa76" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Money Fox Beta</DisplayName>
     <PublisherDisplayName>Apply Solutions Software</PublisherDisplayName>
@@ -26,7 +26,7 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#F0EADD" />
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="MoneyFox.UWP.Tasks.ClearPaymentsTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="MoneyFox.UWP.Tasks.SyncBackupTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="timer" />
@@ -38,7 +38,7 @@
             <Task Type="timer" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="MoneyFox.UWP.Tasks.SyncBackupTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="MoneyFox.UWP.Tasks.ClearPaymentsTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="timer" />
