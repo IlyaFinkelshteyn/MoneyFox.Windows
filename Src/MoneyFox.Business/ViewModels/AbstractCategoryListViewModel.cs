@@ -217,7 +217,7 @@ namespace MoneyFox.Business.ViewModels
                 }
 
                 await CategoryService.DeleteCategory(categoryToDelete.Category);
-                Search();
+                await Search();
             }
         }
     }
