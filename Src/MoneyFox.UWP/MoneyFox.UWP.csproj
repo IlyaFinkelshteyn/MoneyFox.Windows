@@ -451,9 +451,6 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Crashes">
       <Version>0.17.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Bcl.Build">
-      <Version>1.0.21</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
       <Version>2.0.1</Version>
     </PackageReference>
